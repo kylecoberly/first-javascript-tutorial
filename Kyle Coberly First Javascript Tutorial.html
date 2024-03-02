@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<title>
+			Javascript Practice
+		</title>
+		
+		<script type="text/javascript">
+						
+				function displayDate()
+				{
+					document.getElementById("demo").innerHTML=Date();
+				}
+				
+				function adder(number1, number2)
+				{
+					number1 = Number(number1);
+					number2 = Number(number2);
+					sum1 = number1 + number2;
+					document.getElementById("demo").innerHTML=sum1;
+				}
+				
+				function alertBox(alerttext)
+				{
+					alert(alerttext);
+				}
+				
+				function greeting()
+				{
+					var d = new Date();
+					var time = d.getHours();
+					
+					if (time < 10)
+						{
+						document.getElementById("demo").innerHTML="Good Morning!";
+						}
+					else if (time < 18)
+						{
+						document.getElementById("demo").innerHTML="Good Afternoon!";
+						}
+					else
+						{
+						document.getElementById("demo").innerHTML="Good Night!";
+						}
+						
+				}
+				
+				function dayGreeting()
+					{
+					var date = new Date();
+					var day = date.getDay();
+					
+					switch (day)
+					{
+						case 0:
+							document.getElementById("demo").innerHTML="It's SUNDAY!";
+							break;
+						case 1:
+							document.getElementById("demo").innerHTML="It's Monday, hide the Garfield!";
+							break;
+						case 2:
+							document.getElementById("demo").innerHTML="It's Two's Day!";
+							break;
+						case 3:
+							document.getElementById("demo").innerHTML="It's wacky Wednesday!";
+							break;
+						case 4:
+							document.getElementById("demo").innerHTML="It's Durrrsday!";
+							break;
+						case 5:
+							document.getElementById("demo").innerHTML="It's Fry Day!";
+							break;
+						case 6:
+							document.getElementById("demo").innerHTML="It's Saturday!";
+							break;
+					}
+					}
+					
+				function errorCatching()
+					{
+						try
+							{
+								adlert("This won't work");
+							}
+						catch(err)
+							{
+								errortext = "You ran afoul of the following error: " + err.description;
+								if(confirm(errortext))
+									{
+										alerttext = "And you're just ok with that???";		
+										alert(alerttext);
+									}
+								else
+									{
+										alerttext = "Canceling was probably the smart move.";
+										alert(alerttext);
+									}
+							}
+					}
+		</script>
+	</head>
+	<body>
+		<p id="demo">
+		Text will appear here
+		</p>
+		
+		<button type="button" onclick="displayDate()">Display the Date</button>
+		
+		<div>
+			<form>
+				<input name="TextBox1" type="text">
+				<input name="SubmitButton1" type="button" value="Pop It Out!" onClick="alertBox(form.TextBox1.value)">
+			</form>
+		</div>
+		
+		<div>
+			<form>
+				<input name="TextBox2" type="text" />
+				<input name="TextBox3" type="text" />
+				<input name="SubmitButton2" type="button" value="Add Them!!" onClick="adder(form.TextBox2.value, form.TextBox3.value)">
+			</form>
+		</div>
+		
+		<div>
+			<button onclick="greeting()">
+				Greeting
+			</button>
+		</div>
+		
+		<div>
+			<button onclick="dayGreeting()">
+				Day Greeting
+			</button>
+		</div>
+
+		<div>
+			<input type="button" value="This Will Generate Errors" onmouseup="errorCatching()" />
+		</div>
+		
+	</body>
+</html>
